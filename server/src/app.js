@@ -4,14 +4,17 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan')
 
+//sql initialization
+const {squelize} = require('./models')
+
 const app = express()
-app.use(morgan('combine'))
+app.use(morgan('combined'))
 app.use(bodyparser.json())
 app.use(cors())
 
-app.get('/status',(req,res)=>{
-    res.send({
-        message:'Wohoo!! We r finally connected'
+require('./routes')(app);
+squelize.sync()
+    .then(()=>{
+        app.listen(config.port)
+        console.log(`server started on port ${config.port}`)
     })
-})
-app.listen(process.env.PORT || 8083)
