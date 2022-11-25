@@ -12,7 +12,7 @@
       <input v-model="email" type="Email" name="email" id="email" placeholder="Email Address">
       
       <br>
-      <input v-model="phone" type="tel" name="Number" id="Number" placeholder="mobile Number" pattern="[0-9]{10}">
+      <input v-model="phone" type="tel" name="Number" id="Number" placeholder="Mobile Number" pattern="[0-9]{10}">
       
       <br>
       <input  v-model="password" type="Password" name="Password" id="Password" placeholder="Password">
@@ -98,7 +98,8 @@ import validateRegisterInput from "../validation/ValidateRegistereInput"
  }
  .SignUp>span{
     position: relative; 
-    top:-120px;
+    top:-135px;
+    left: 3px;
     width: 384px;
     font-family: 'Poppins';
     font-style: normal;

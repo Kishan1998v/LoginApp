@@ -1,9 +1,7 @@
 import validator from "validator";
 const validateLoginInput=(data)=>{
     let errors = {};
-    // var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const {username,password}=data;
-    console.log(username,password);
     
     if(validator.isEmpty(username)){
         errors.username = "Email or Mobile Number is required";

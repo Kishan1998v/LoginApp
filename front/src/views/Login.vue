@@ -8,10 +8,11 @@
       
       <br>
       <input :class="`${errors.password ?'is-invalid':'is-valid'}`" v-model="password" :type="showInput ? 'text' : 'password'" name="Password" id="Password" placeholder="Password">
-      <img class="eye" @click="togglefn()" src="../assets/Vector.png" alt="">
+      <img v-if="redEye1 && showInput" class="eye" @click="togglefn()" src = "../assets/vector3.png"/>
+      <img v-else-if="redEye1 && !showInput" class="eye" @click="togglefn()" src = "../assets/vectors3.png"/>
+      <img v-else-if="!redEye1 && showInput" class="eye" @click="togglefn()" src = "../assets/vector2.png"/>
+      <img v-else class="eye" @click="togglefn()" src = "../assets/vector1.png"/>
       <span id="UserMessage">{{errors.password}}</span>
-    
-      <br>
       <router-link to="/forgotPassword" class="forgotPass">Forgot password</router-link>
 
       <br>
@@ -29,6 +30,7 @@ export default {
   },
   data(){
     return{
+      redEye1:false,
       showInput:false,
       username:"",
       password:"",
@@ -62,7 +64,7 @@ export default {
                 }
             }
             else{
-              this.errors.username = "Mobile Number does not exist!";
+              this.errors.username = "Sorry! This mobile number is not registered.";
             }
 
         }
@@ -79,9 +81,15 @@ export default {
               }
           }
           else{
-            this.errors.username = "Email does not exist!";
+            this.errors.username = "Sorry! This email is not registered.";
         }
           }
+      }
+      if(this.errors.password){
+        this.redEye1=true
+      }
+      else{
+        this.redEye1=false
       }
     },
     togglefn(){
@@ -109,8 +117,10 @@ flex-grow: 0;
   .eye{
     position: absolute;
     left: 91%;
-    top: 54%;
-    
+    top: 55%;
+    height: 16px;
+    width: 16px;
+    src: url("../assets/vectors3.png");
     
 /* Neutral / Charcoal */
   }

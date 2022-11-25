@@ -3,7 +3,7 @@
     <h1 class="Text">Forgot Password</h1>
     <p class="small_Para2">We’ll send you a reset password link to your registered email address</p>
     <br>
-    <input type="Email" name="email" id="email" placeholder="Registered Email">
+    <input  type="Email" name="email" id="email" placeholder="Registered Email">
     <br>
     <button class="bt2" type="submit"><span class="recoverytext">Email me a recovery link</span></button>
     <br>
@@ -11,10 +11,20 @@
   </form>
 </template>
 <script>
+ 
   export default {
     name: 'ForgetPasswordPage',
     props: {
     msg: String
+    },
+    data(){
+      return{
+        email:"",
+        errors:{}
+      }
+    },
+    methods:{
+        
     }
   }
 </script>
